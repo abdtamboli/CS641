@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "week2classlab",
-    "slug": "week2classlab",
+    "name": "week2classlabs",
+    "slug": "week2classlabs",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

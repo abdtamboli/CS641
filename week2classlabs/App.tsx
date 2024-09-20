@@ -1,3 +1,4 @@
+
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView, StyleSheet, Text, Image, ActivityIndicator } from 'react-native';
 
