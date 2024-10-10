@@ -1,29 +1,55 @@
-
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, Image, ActivityIndicator } from 'react-native';
+import { ScrollView, StyleSheet, ActivityIndicator, View, Button, Text } from 'react-native';
+import React, { useState } from 'react';
+
+// Component 1: Displays a number and updates it when the button is clicked
+function ComponentOne({ initialValue }) {
+  const [count, setCount] = useState(initialValue);
+
+  return (
+    <View style={styles.componentContainer}>
+      <Text>Component 1 - Count: {count}</Text>
+      <Button title="Increase Count" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+}
+
+// Component 2: Displays a text and updates it when the button is clicked
+function ComponentTwo({ initialText }) {
+  const [text, setText] = useState(initialText);
+
+  return (
+    <View style={styles.componentContainer}>
+      <Text>{text}</Text>
+      <Button title="Change Text" onPress={() => setText("Text Changed!")} />
+    </View>
+  );
+}
 
 export default function App() {
   return (
-    <ScrollView>
-      <Text>Text 1</Text>
-      <Text>text 2</Text>
-      <ActivityIndicator></ActivityIndicator>
-      <Image source={{uri: "https://cdn.vox-cdn.com/thumbor/RvcSv_hd-VrlfPg8Tl_JOfhoIoU=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19534169/171109_08_11_37_5DS_0545__1_.jpg"}} 
-      style={styles.tinyLogo}
-      ></Image>
+    <ScrollView contentContainerStyle={styles.container}>
+      <ActivityIndicator />
+      
+      {/* Replace initialValue and initialText with the text/number you want */}
+      <ComponentOne initialValue={5} />
+      <ComponentTwo initialText="Mobile Web Development" />
+      
+      <StatusBar style="auto" />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
   },
-  tinyLogo: {
-    width: 500,
-    height: 500,
+  componentContainer: {
+    marginVertical: 20,
+    alignItems: 'center',
   },
 });
